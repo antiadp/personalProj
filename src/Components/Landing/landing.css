@@ -1,0 +1,17 @@
+.login-main {
+    width: 100vw;
+    height: 100vh;
+}
+
+.login-logo {
+
+}
+
+
+.login-cred-container {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    padding: 10px;
+    margin: 10px;
+}
