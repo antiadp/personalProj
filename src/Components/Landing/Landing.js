@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom'
 
 import './landing.css';
+import register from '../Register/Register';
 
 export default class login extends Component {
     constructor(){
@@ -19,34 +21,55 @@ export default class login extends Component {
     render() {
         return(
             <div className='login-main'>
-                <div className='login-top'>
-                     <div className='login-logo'>
-                        SOUNDCHEQ
-                     </div>
-                </div>
+            <div className='topmargin'></div>
                 <div className='login-cred-container'>
-                <div>
+                <div id=''>
                     Sign In
                 </div>
                     <input
-                        placeholder='username'
+                        className='input-box'
+                        placeholder='   USERNAME'
                         type='username'
                         />
                     <input 
-                        placeholder='password'
+                        className= 'input-box'
+                        placeholder='   PASSWORD'
                         type='password'
                         />
                     <button
-                        placeholder='Sign In'
-                        style= {{
-                            borderColor: "green",
-                            width: '15vw',
-                            height: '17.5px',
-                            borderRadius: '5px'
-                        }}
+                        className='sign-in-btn'
                         >
                             Sign In
                     </button>
+
+                </div>
+                <div 
+                    className='links'>
+
+                    <Link 
+                        to={register}
+                        className='register'>
+                        <div className='links-content'>
+                            <div>
+                                Register
+                            </div>
+                            <div>
+                                >
+                            </div>
+                        </div>
+                    </Link>
+
+                    <Link to={register}
+                    className='password'>
+                        <div className='links-content'>
+                            <div>
+                                Forgot Password
+                            </div>
+                            <div>
+                                >
+                            </div>
+                        </div>
+                    </Link>
                 </div>
             </div>
         )

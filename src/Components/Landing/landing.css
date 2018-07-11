@@ -1,10 +1,21 @@
+/* #img {
+    height: 100vh;
+    width: 100vw;
+    position: sticky;
+    background-color: #8F74C0;
+} */
+
 .login-main {
     width: 100vw;
     height: 100vh;
+    background-color: #8F74C0;
+    background-image: url('../../assets/Login1.png');
+    position: absolute;
+    /* display: inherit; */
+    justify-content: flex-end;
 }
-
-.login-logo {
-
+.topmargin {
+    padding-top: 350px;
 }
 
 
@@ -12,6 +23,49 @@
     display: flex;
     flex-direction: column;
     align-content: center;
-    padding: 10px;
-    margin: 10px;
+    justify-content: flex-end;
+    background-color: #997ECA;
+    font-size: 25px;
+    font-weight: 10;
+    padding: 17.5px;
+    z-index: 1;
+    color: white;
+}
+
+.input-box {
+    height: 55px;
+    margin-top: 5px;
+    background-color: #A48CD2;
+    color: #D5CCE5;
+}
+
+.sign-in-btn {
+    background-color: #8C71BF;
+    color: white;
+    height: 50px;
+    /* padding: 5px; */
+    margin-top: 5px;
+}
+
+.links {
+    display: inline-flex;
+    flex-direction: column;
+    width: 100%;
+    /* justify-content: flex-end; */
+}
+.register, .password {
+    text-decoration: none;
+    color: white;
+    height: 60px;
+    font: 40px;
+}
+.register {
+    background-color: #8F74C0;
+}
+.password {
+    background-color: #997ECA;
+}
+.links-content {
+    flex-direction: row;
+    justify-content: space-between;
 }
