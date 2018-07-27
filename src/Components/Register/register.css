@@ -1,0 +1,14 @@
+.reg-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.page-title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.page-status {
+    max-width: 100px;
+    height: auto;
+}

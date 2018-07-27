@@ -1,0 +1,16 @@
+.main {
+    height: 60px;
+    width: 100vw;
+    display: flex;
+    background-color: #8F74C0;
+    justify-content: space-between;
+    align-items: center;
+}
+.page-location {
+    color: white;
+    font-size: 24px;
+    
+}
+.menu-drawer {
+    /* width: 60%; */
+}

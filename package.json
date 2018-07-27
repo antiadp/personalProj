@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "bcrypt": "^3.0.0",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
@@ -11,6 +13,7 @@
     "hash-router": "^0.4.0",
     "massive": "^5.1.0",
     "react": "^16.4.1",
+    "react-burger-menu": "^2.5.2",
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
@@ -24,7 +27,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "main": "server/server.js",
+  "main": "server/index.js",
   "proxy": "http://localhost:8008",
   "nodemonConfig": {
     "ignore": [
