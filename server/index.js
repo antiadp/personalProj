@@ -5,7 +5,6 @@ const   express = require('express')
     ,   session = require('express-session')
     ,   bodyParser = require('body-parser')
     ,   vCtrl = require('./venuectrl')
-    ,   eCtrl = require('./eventctrl')
     ,   uCtrl = require('./userctrl')
     ,   isAuthenticated = require('./middlewares/isAuthenticated')
     ,   app = express();
@@ -39,6 +38,9 @@ app.put('/updateuser', uCtrl.updateUser);
 app.get('/getuserdata', uCtrl.getUserData);
 
 app.get('/api/getVenues', vCtrl.getVenues);
+
+app.get('/venue/:id', vCtrl.getVenPage)
+
 app.get('./uservenues', vCtrl.uservenues);
 app.delete('./removeFav', vCtrl.removeFav);
 

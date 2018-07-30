@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import { connect } from 'react-redux';
+import { updateUser } from '../../dux/Reducer';
 
 import './landing.css';
 
-export default class login extends Component {
+class login extends Component {
     constructor(){
         super()
         this.state = {
@@ -20,10 +22,14 @@ export default class login extends Component {
         this.setState({ [prop]: val });
       }
     login() {
+        console.log('hit')
         axios
           .post('/auth/user', {
             username: this.state.username,
             password: this.state.password
+          })
+          .then(res =>{
+              this.props.updateUser(res.data)
           })
           .then(res => this.props.history.push('/home'));
       }
@@ -55,7 +61,7 @@ export default class login extends Component {
                             />
                         <button
                             className='sign-in-btn'
-                            onClick={e => this.login()}
+                            onClick={() => this.login()}
                             >
                                 Sign In
                         </button>
@@ -69,9 +75,8 @@ export default class login extends Component {
                             className='register'>
                             <div 
                                 className='links-content'>
-                                <div>
+                                <div style={{"marginBottom": 15}}>
                                     Register
-                                    <i className="fa fa-angle-right"></i>
                                 </div>
                                 <div>
                                 </div>
@@ -82,9 +87,8 @@ export default class login extends Component {
                     <Link to='/Register1'
                     className='password'>
                         <div className='links-content'>
-                            <div>
+                            <div style={{"marginBottom": 5}}>
                                 Forgot Password
-                                <i className="fa fa-angle-right"></i>
                             </div>
                             <div>
                                 
@@ -96,3 +100,4 @@ export default class login extends Component {
         )
     }
 }
+export default connect(null, {updateUser})(login);

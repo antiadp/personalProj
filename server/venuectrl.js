@@ -30,6 +30,12 @@ module.exports = {
             .catch(err => {
                 console.log('remove error:', err)
             })      
+    },
+
+    getVenPage: async (req, res) => {
+        let db = req.app.get('db');
+        let venue = await db.getVenPage([req.params.id])
+        console.log(venue[0])
+        res.status(200).send(venue[0])
     }
-    
 }

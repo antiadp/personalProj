@@ -3,9 +3,7 @@ const initialState = {
     first: "",
     last: "",
     email: "",
-    bdayday: "",
-    bdaymonth: "",
-    bdayyear: "",
+    user: {},
     vtype1: "",
     vtype2: "",
     vtype3: "",
@@ -17,9 +15,7 @@ const initialState = {
 const UPDATE_FIRST = 'UPDATE_FIRST';
 const UPDATE_LAST = 'UPDATE_LAST';
 const UPDATE_EMAIL = 'UPDATE_EMAIL';
-const UPDATE_BDAYDAY = 'UPDATE_BDAYDAY';
-const UPDATE_BDAYMONTH = 'UPDATE_BDAYMONTH';
-const UPDATE_BDAYYEAR = 'UPDATE_BDAYYEAR';
+const UPDATE_USER = 'UPDATE_USER';
 const UPDATE_VTYPE1 = 'UPDATE_VTYPE1';
 const UPDATE_VTYPE2 = 'UPDATE_VTYPE2';
 const UPDATE_VTYPE3 = 'UPDATE_VTYPE3';
@@ -41,14 +37,9 @@ function reducer(state = initialState, action) {
       case UPDATE_EMAIL:
         return Object.assign({}, state, { email: action.payload });
   
-      case UPDATE_BDAYDAY:
-        return Object.assign({}, state, { bdayday: action.payload });
+      case UPDATE_USER:
+        return Object.assign({}, state, { user: action.payload });
   
-      case UPDATE_BDAYMONTH:
-        return Object.assign({}, state, { bdaymonth: action.payload });
-  
-      case UPDATE_BDAYYEAR:
-        return Object.assign({}, state, { bdayyear: action.payload });
   
       case UPDATE_VTYPE1:
         return Object.assign({}, state, { vtype1: action.payload });
@@ -96,25 +87,13 @@ function reducer(state = initialState, action) {
     };
   }
   
-  export function updateDay(bdayday) {
+  export function updateUser(user) {
     return {
-      type: UPDATE_BDAYDAY,
-      payload: bdayday
+      type: UPDATE_USER,
+      payload: user
     };
   }
   
-  export function updateMonth(bdaymonth) {
-    return {
-      type: UPDATE_BDAYMONTH,
-      payload: bdaymonth
-    };
-  }
-  export function updateYear(bdayyear) {
-    return {
-      type: UPDATE_BDAYYEAR,
-      payload: bdayyear
-    };
-  }
   export function updateVtype1(vtype1) {
     return {
       type: UPDATE_VTYPE1,

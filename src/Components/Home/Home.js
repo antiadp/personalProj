@@ -1,42 +1,36 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import {Link} from "react-router-dom"
+import {connect} from 'react-redux';
+
 
 import './home.css';
 import Nav from '../Nav/Nav';
 import VenuePage from '../Venue/VenuePage';
+import VenueCard from '../Venue/venueCard';
+
+
+
+
 
 class Home extends Component {
     constructor() {
         super()
         this.state= {
-            user: {},
             venues: [],
-            events: [],
             searchInput: ''
         }
         this.getvenues = this.getvenues.bind(this)
-        this.getuser = this.getuser.bind(this)
     }
     componentDidMount() {
-        this.getuser()
-        this.getvenues()
+    this.getvenues()
     }
 
-    getuser(){
-    axios.get('/getuserdata')
-        .then(resp => {
-            console.log("user res", resp)
-            this.setState({
-                user: resp.data
-            })
-        })
-    }
 
     getvenues(){
         axios.get('/api/getVenues')
             .then(res => {
-                // console.log("this is the res.data:", res.data)
+                console.log("this is the res.data:", res.data)
                 this.setState({
                     venues: res.data
                 })
@@ -58,27 +52,8 @@ class Home extends Component {
         this.getvenues()
     }
 
-    render() {
-        const allVenues = this.state.venues.map(venue => {
-            return(
-                <div className='vcards' key={venue.id}
-                    style= {{"backgroundImage": "{venue.pic1}"}}>
-                    <h5 className='vname'> {venue.name} </h5>
-                    <div className='vcity-st'> {venue.city}, {venue.state} </div>
-                    Sounds:
-                    <div className='types'> {venue.stype1} </div>
-                    <div className='types'> {venue.stype2} </div>
-                    <div className='types'> {venue.stype3} </div>
-                    Venue:
-                    <div className='types'> {venue.vtyp1} </div>
-                    <div className='types'> {venue.vtyp2} </div>
-                    <div className='types'> {venue.vtyp3} </div>
-                    <img className='venue-pic' src={venue.pic1} alt='venuepic'/>
-                    <div className='star button'>  </div>
-                    <hr/>
-                </div>
-                )})
-
+    render() {  
+        console.log('user props',this.props.user)
         return (
             <div>
                 <Nav/>
@@ -102,18 +77,36 @@ class Home extends Component {
                         />
                     <select className='search-by'>
                         <option> Venue Filter </option>
-                        <option value={this.state.user.vtype1}> {this.state.user.vtype1} </option>
-                        <option value={this.state.user.vtype2}> {this.state.user.vtype2} </option>
-                        <option value={this.state.user.vtype3}> {this.state.user.vtype3} </option>
+                        <option value={this.props.user.vtype1}> {this.props.user.vtype1} </option>
+                        <option value={this.props.user.vtype2}> {this.props.user.vtype2} </option>
+                        <option value={this.props.user.vtype3}> {this.props.user.vtype3} </option>
                     </select>
                 </div>
-                {this.state.searchInput}
-                <Link to={VenuePage}>
-                    {allVenues}
-                </Link>
+                {this.state.venues 
+                     ?
+                    this.state.venues.map(venue => {
+                        let {id, name, city, state, stype1, stype2, stype3, vtype1, vtype2, vtype3, pic1 } = venue;
+                        return(
+                            <VenueCard 
+                                key={id} id={id} name={name} city={city} state={state} 
+                                stype1={stype1} stype2={stype2} stype3={stype3} 
+                                vtype1={vtype1} vtype2={vtype2} vtype3={vtype3} pic1={pic1}
+                            />
+                        )
+                    })    
+                    : null
+                }
             </div>
         )
     }
 }
+function mapStateToProps(state){
+    const{user} = state
+    return {
+        user
+    }
+}
 
-export default Home;
+
+
+export default connect(mapStateToProps)(Home);

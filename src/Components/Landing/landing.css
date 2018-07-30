@@ -5,9 +5,11 @@
     height: 100vh;
     background-color: #8F74C0;
     background-image: url('../../assets/Login1.png');
+    background-repeat: no-repeat;
+    background-size: contain;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+
 }
 .topmargin {
     display: flex;
@@ -54,7 +56,6 @@
     background-color: #997ECA;
     font-size: 25px;
     font-weight: 10;
-    padding: 17.5px;
     width: 100vw;
 }
 .register, .password {
@@ -71,7 +72,7 @@
     background-color: #997ECA;
 }
 .links-content {
-    flex-direction: row;
-    justify-content: space-around;
     width: 100vw;
+    justify-content: center;
+    display: flex;
 }
