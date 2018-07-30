@@ -32,17 +32,20 @@ getVenue = async () => {
 }
     
     render(){
+        
             return(
                 <div  className='main-container'>
                 <Nav/>
                 <br/>
                     <h3 style = {{marginTop: 60}}> {this.state.venue.name} </h3>
+                    <button
+                        onClick={this.favoriteVenue}
+                        className='star-button'
+                        > 
+                        {this.state.venue.favorite ? <Gold/>  : <White/> } 
+                    </button>
                         <br/>
-                    <div>
-                        {this.state.venue.pic1}
-                        {this.state.venue.pic2}
-                        {this.state.venue.pic3}
-                    </div>
+                   
                         Description
                     <h6>{this.state.venue.description}</h6>
                     <div> 
@@ -71,17 +74,13 @@ getVenue = async () => {
                         Address:
                         {this.state.venue.address}
                         {this.state.venue.city}, {this.state.venue.state}
+                        <br/>
                         Phone:
                         {this.state.venue.phone}
+                        <br/>
                         Web:
                         {this.state.venue.web}
                     </div>
-                    <button
-                        onClick={this.favoriteVenue}
-                        className='star-button'
-                        > 
-                        {this.state.venue.favorite ? <Gold/>  : <White/> } 
-                    </button>
                 </div>
             )
         }

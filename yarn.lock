@@ -5884,6 +5884,10 @@ react-error-overlay@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-4.0.0.tgz#d198408a85b4070937a98667f500c832f86bd5d4"
 
+react-image-carousel@^2.0.18:
+  version "2.0.18"
+  resolved "https://registry.yarnpkg.com/react-image-carousel/-/react-image-carousel-2.0.18.tgz#5868ea09bd9cca09c4467d3d02695cd4e7792f28"
+
 react-is@^16.3.1:
   version "16.4.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.4.1.tgz#d624c4650d2c65dbd52c72622bbf389435d9776e"

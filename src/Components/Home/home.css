@@ -29,13 +29,17 @@
     text-decoration: none;
     flex-wrap: inherit;
 }
-
-
-
 .venue-pic {
     z-index: -1;
     width: 100vw;
-    height: 200px;
-    
+    height: 200px;   
 }
-
+.fav-button {
+    display: flex;
+    justify-content: flex-end;
+    justify-content: center;
+    align-content: center;
+    position: fixed;
+    z-index: 5;
+    font-size: 4rem;
+}

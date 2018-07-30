@@ -16,6 +16,7 @@
     "react-burger-menu": "^2.5.2",
     "react-dom": "^16.4.1",
     "react-dropzone": "^4.2.13",
+    "react-image-carousel": "^2.0.18",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",

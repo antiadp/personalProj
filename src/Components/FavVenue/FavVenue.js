@@ -3,6 +3,7 @@ import axios from 'axios';
 import './FavVenue.css';
 
 import Nav from '../Nav/Nav'
+import venueCards from '../Venue/venueCard'
 
 
 export default class favVenues extends Component {

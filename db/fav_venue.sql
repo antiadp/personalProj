@@ -6,4 +6,5 @@
 --     )
 
 SELECT * 
+from venues
 WHERE favorite = true;

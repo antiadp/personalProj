@@ -95,6 +95,7 @@ class Home extends Component {
                     })    
                     : null
                 }
+                
             </div>
         )
     }
