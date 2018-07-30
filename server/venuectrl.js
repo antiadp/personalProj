@@ -14,6 +14,11 @@ module.exports = {
     },
     uservenues: (req,res)=> {
         let db = req.app.get("db");
+        let id = req.session.user.id
+        db.get_user_fav([id])
+            .then(uservenues =>{
+                res.status(500).send(uservenues)
+            })
             
     }, 
     removeFav: (req, res) => {

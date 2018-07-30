@@ -36,7 +36,7 @@ export default class header extends Component {
             </div>
             <div
                 className='page-location'>
-                Trending    
+                Soundcheq    
             </div>
             <div>
             <i className="fa fa-filter" 

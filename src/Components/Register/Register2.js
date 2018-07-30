@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 import {updateVtype1, updateVtype2, updateVtype3, updateStype1, updateStype2, updateStype3} from '../../dux/Reducer'
 
 import Nav from '../Nav/Nav'
+import Home from "../Home/Home"
 import solidCircle from "../../assets/circle-solid.svg"
 import emptyCircle from '../../assets/circle-regular.svg'
 
@@ -15,6 +16,9 @@ class Register2 extends Component {
 
     updateUser() {
         axios.put()
+            .then(res => {
+                
+            })
     }
 
     render(){
@@ -25,10 +29,10 @@ class Register2 extends Component {
                     <div>
                         <h3 className="page-title">
                             Complete Profile
-                            <div className='page-status'>
+                            {/* <div className='page-status'>
                                 <img src={solidCircle} alt='inprog'/>
                                 <img src={emptyCircle} alt='noprog'/>
-                            </div>
+                            </div> */}
                         </h3>
                     <div>
                         <h5>
@@ -36,7 +40,8 @@ class Register2 extends Component {
                         </h5>
                     </div>
                     </div>
-                        <select type='radio' min='1' max='3' multiple>
+                        <select type='radio' min='1' max='3' multiple
+                            className="drop-selector" >
                             <option value="Electronic Dance Music "> EDM </option>
                             <option value="Hip-Hop"> Hip-Hop </option>
                             <option value="Top40s"> Top 40's </option>
@@ -60,7 +65,8 @@ class Register2 extends Component {
                             </h5>
                         </div>
                         <div>
-                            <select type='radio' min='1' max='3' multiple>
+                            <select type='radio' min='1' max='3' multiple
+                                className="drop-selector">
                                 <option value="Nightclub"> Nightclub </option>
                                 <option value="Bar"> Bar </option>
                                 <option value="Hookah"> Hookah Bar </option>
@@ -78,13 +84,14 @@ class Register2 extends Component {
                             </select>
                         </div>
                     </div>
-                        <Link 
-                            to='/home'
+                    <div className='buttons'>
+                        <Link to={Home}
                             onClick = {e => {
                                 this.updateUser()
                             }}>
-                            Done 
+                                Done 
                         </Link>
+                    </div>
                 </div>
             </div>
         )

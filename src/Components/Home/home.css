@@ -8,21 +8,30 @@
 
 }
 .search-input {
-
+    color: purple;
+    font: bold;
+    text-decoration: none;
+    outline: none;
 }
 .search-by {
     text-decoration: none;
+    outline: none;
 
 }
 .vcards {
     margin: 0;
-    padding: 5px;
+    padding: 2px;
     background-color: rgb(81, 89, 97);
     color: white;
+    text-decoration: none;
+    flex-wrap: inherit;
+
 }
 
 .venue-pic {
-    width: 100%;
+    z-index: -1;
+    width: 100vw;
+    height: 200px;
     
 }
 

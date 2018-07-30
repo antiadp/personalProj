@@ -1,6 +1,7 @@
 .reg-container {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
 }
 .page-title {
@@ -9,6 +10,39 @@
     justify-content: center;
 }
 .page-status {
-    max-width: 100px;
-    height: auto;
+    max-width: 10px;
+    height: 10px;
+}
+.input-form {
+    padding: 5px;
+    color: slategray;
+    
+}
+.input-boxes {
+    width: 80vw;
+    padding: 10px;
+    border-bottom: 1px solid #8F74C0;
+    margin: 3px;
+    border-radius: 3px;
+    ;
+}
+.buttons {
+    border: 1px solid #8F74C0;
+    border-radius: 3px;
+    background-color: #9D85CB;
+    justify-content: center;
+    align-content: center;
+    color: slategray;
+    padding: 5px;
+}
+.button-text {
+    justify-content: center;
+}
+.cancel-button {
+    background-color: lightgrey;
+    width: auto;
+    padding: 5px;
+}
+.drop-selector {
+    width: 60vw;
 }

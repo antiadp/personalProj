@@ -7,14 +7,18 @@ module.exports = {
         let db = req.app.get('db')
         let {username, password} = req.body;
             db.find_user([username, password])
-                .then(user => {
+                .then(userRes => {
                     console.log('user obj on sesh', user[0])
                     // req.session.user = user[0]
-                    req.session.user = user[0]
+                    req.session.user = userRes[0]
+                    req.session.user.id = userRes[0].id;
+
                     console.log(user[0])
-                    res.status(200).send(user[0])
+                    res.status(200).send(userRes)
+                    console.log("this is loginuser",userRes[0])
                 })
                 .catch(err => {
+                    alert('Wrong Password')
                     console.log('this loginUser err', err)
                     res.status(500).send(err)
                 })
@@ -22,6 +26,7 @@ module.exports = {
 
     getUserData: (req, res) => {
         let db = req.app.get('db')
+        console.log('ID',req.session)
         let { userId } = req.session;
         db.get_user([userId]).then(user => {
             res.status(200).send(user)

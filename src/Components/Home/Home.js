@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import {Link} from "react-router-dom"
 
 import './home.css';
 import Nav from '../Nav/Nav';
-import VenueCards from '../Venue/venueCard';
+import VenuePage from '../Venue/VenuePage';
 
 class Home extends Component {
     constructor() {
@@ -11,7 +12,8 @@ class Home extends Component {
         this.state= {
             user: {},
             venues: [],
-            events: []
+            events: [],
+            searchInput: ''
         }
         this.getvenues = this.getvenues.bind(this)
         this.getuser = this.getuser.bind(this)
@@ -34,7 +36,7 @@ class Home extends Component {
     getvenues(){
         axios.get('/api/getVenues')
             .then(res => {
-                console.log("this is the:", res.data)
+                // console.log("this is the res.data:", res.data)
                 this.setState({
                     venues: res.data
                 })
@@ -44,16 +46,30 @@ class Home extends Component {
             })
     }
 
+    venueSearch() {
+        axios.get('./venues/search')
+            .then(venues => {
+                this.setState({
+                    // set to new var or state.venues?
+                })
+            })
+    }
+    clearSearch() {
+        this.getvenues()
+    }
 
     render() {
         const allVenues = this.state.venues.map(venue => {
             return(
-                <div className='vcards' key={venue.id}>
+                <div className='vcards' key={venue.id}
+                    style= {{"backgroundImage": "{venue.pic1}"}}>
                     <h5 className='vname'> {venue.name} </h5>
                     <div className='vcity-st'> {venue.city}, {venue.state} </div>
+                    Sounds:
                     <div className='types'> {venue.stype1} </div>
                     <div className='types'> {venue.stype2} </div>
                     <div className='types'> {venue.stype3} </div>
+                    Venue:
                     <div className='types'> {venue.vtyp1} </div>
                     <div className='types'> {venue.vtyp2} </div>
                     <div className='types'> {venue.vtyp3} </div>
@@ -66,14 +82,20 @@ class Home extends Component {
         return (
             <div>
                 <Nav/>
-                <div className='search'>
+                <div className='search'
+                    onClick={ () => this.clearSearch()
+                    }>
                     <i className="fa fa-search" 
                         style={{"fontSize": "24px",
-                                "color": "#D5CCE5"
+                                "color": "#D5CCE5",
+                                "paddingLeft": "5px"
                         }}></i>
                     <input
                         className='search-input'
                         placeholder='Miami Beach, FL'
+                        onChange={(e)=> {
+                            this.setState({searchInput: e.target.value})
+                        }}
                         style= {{
                             "height": "100%"
                         }}
@@ -85,7 +107,10 @@ class Home extends Component {
                         <option value={this.state.user.vtype3}> {this.state.user.vtype3} </option>
                     </select>
                 </div>
-                {allVenues}
+                {this.state.searchInput}
+                <Link to={VenuePage}>
+                    {allVenues}
+                </Link>
             </div>
         )
     }

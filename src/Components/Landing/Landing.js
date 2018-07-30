@@ -3,7 +3,6 @@ import axios from 'axios';
 import {Link} from 'react-router-dom'
 
 import './landing.css';
-// import Register1 from '../Register/Register1';
 
 export default class login extends Component {
     constructor(){
@@ -43,7 +42,7 @@ export default class login extends Component {
                             className='input-box'
                             placeholder='   USERNAME'
                             type='username'
-                            // value={this.state.username}
+                            value={this.state.username}
                             onChange={e => this.handleChange("username", e.target.value)}
                 
                             />
@@ -51,7 +50,7 @@ export default class login extends Component {
                             className= 'input-box'
                             placeholder='   PASSWORD'
                             type='password'
-                            // value={this.state.password}
+                            value={this.state.password}
                             onChange={e => this.handleChange("password", e.target.value)}
                             />
                         <button

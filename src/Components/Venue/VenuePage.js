@@ -1,14 +1,17 @@
 import React, {Component} from 'react';
 
 import './venuePage.css'
+import Nav from '../Nav/Nav'
+
 
 class VenuePage extends Component {
 
         render(){
             return(
-                <div>
-                    Venue Page
-                    <i class="fa fa-angle-right"> oh</i>
+                <div className='main-container'>
+                <Nav/>
+                    <div>Venue Page </div>
+                    <div><i className="fa fa-angle-right"> </i> </div>
                 </div>
             )
         }
