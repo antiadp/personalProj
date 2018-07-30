@@ -1,11 +1,15 @@
 .search {
     height: 30px;
+    width: 100vw;
+    background-color: white;
     align-items: center;
     justify-content: space-between;
     padding: 10px 0px;
     border: 1px solid #D5CCE5;
     display: flex;
-
+    position: fixed;
+    top: 58px;
+    z-index: 1;
 }
 .search-input {
     color: purple;

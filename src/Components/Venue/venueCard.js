@@ -2,8 +2,9 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import {Link} from "react-router-dom";
 import styled from "styled-components";
-import VenuePage from './VenuePage'
 
+import Gold from '../../assets/Gold';
+import White from '../../assets/White';
 
 
 class VenueCard extends Component {
@@ -21,35 +22,38 @@ class VenueCard extends Component {
     // }
     render() {
         let {
-            id, name, city, state, stype1, stype2, stype3, vtyp1, vtyp2, vtyp3, pic1
+            id, name, city, state, stype1, stype2, stype3, vtyp1, vtyp2, vtyp3, pic1, fav
         } = this.props
         
         return(
-            <div style={{background: 'rgba(76, 175, 80, 0.8)'}}>
+            <div style={{background: 'rgba(76, 175, 80, 0.8)', textDecoration: 'none'}}>
+            <Link    to={`/venue/${id}`}>
             <Cards style={{background: `url(${pic1})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: '100% 85%'}}>
-                <InfoContainer>
-                <Link
-                    to={`/venue/${id}`}
-                >
-                <div className='vcards' key={id}>
-                    <h5 className='vname'> {name} </h5>
-                    <TypeContainer className="info-container">
+                <CityContainer>
+                    <Star> {fav ?  <Gold/> : <White/>} </Star>
+                    <Vname> {name} </Vname>
                        <div className='vcity-st'> {city}, {state} </div>
-                       Sounds:
-                       <div className='types'> {stype1} </div>
-                       <div className='types'> {stype2} </div>
-                       <div className='types'> {stype3} </div>
-                       Venue:
-                       <div className='types'> {vtyp1} </div>
-                       <div className='types'> {vtyp2} </div>
-                       <div className='types'> {vtyp3} </div>
-                       <div className='star button'> ⭐ </div>
+                       </CityContainer>
+
+                <InfoContainer>
+                 
+                <div className='vcards' key={id}>
+                    <TypeContainer className="info-container">
+                    
+                       <Types> {stype1} </Types>
+                       <Types> {stype2} </Types>
+                       <Types> {stype3} </Types>
+                       
+                       <Types> {vtyp1} </Types>
+                       <Types> {vtyp2} </Types>
+                       <Types> {vtyp3} </Types>
+                    
                     </TypeContainer>
                 </div>
                     {/* <img className='venue-pic' src={pic1} alt='venuepic'/> */}
-                </Link>
                 </InfoContainer>
             </Cards>
+                </Link>
             </div>
         )
     }
@@ -60,7 +64,19 @@ export default VenueCard;
 
 const TypeContainer = styled.section`
     display: flex;
-    
+`
+
+const CityContainer = styled.section`
+color: white;
+padding-left:1rem;
+padding-top:1rem;
+text-decoration: none;
+&:visited {
+    text-decoration:none;
+}
+&:visited {
+    text-decoration:none;
+}
 `
 
 const Cards = styled.section`
@@ -72,4 +88,18 @@ margin-bottom:.5rem;
 const InfoContainer= styled.section`
 position:absolute;
     bottom:0;
+    padding:.5rem;
+`
+const Types = styled.div`
+margin-left: 10px;
+
+`
+
+const Star = styled.div`
+position: absolute;
+right: 15px;
+`
+
+const Vname = styled.div`
+margin-bottom: 5px;
 `

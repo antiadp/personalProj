@@ -5,6 +5,9 @@
     background-color: #8F74C0;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    z-index: 5;
+    top:0;
 }
 .page-location {
     color: white;

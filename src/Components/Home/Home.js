@@ -30,7 +30,6 @@ class Home extends Component {
     getvenues(){
         axios.get('/api/getVenues')
             .then(res => {
-                console.log("this is the res.data:", res.data)
                 this.setState({
                     venues: res.data
                 })
@@ -53,10 +52,10 @@ class Home extends Component {
     }
 
     render() {  
-        console.log('user props',this.props.user)
         return (
             <div>
                 <Nav/>
+                <div style={{marginTop: '110px'}}/>
                 <div className='search'
                     onClick={ () => this.clearSearch()
                     }>
@@ -85,12 +84,12 @@ class Home extends Component {
                 {this.state.venues 
                      ?
                     this.state.venues.map(venue => {
-                        let {id, name, city, state, stype1, stype2, stype3, vtype1, vtype2, vtype3, pic1 } = venue;
+                        let {id, name, city, state, stype1, stype2, stype3, vtype1, vtype2, vtype3, pic1, favorite } = venue;
                         return(
                             <VenueCard 
                                 key={id} id={id} name={name} city={city} state={state} 
                                 stype1={stype1} stype2={stype2} stype3={stype3} 
-                                vtype1={vtype1} vtype2={vtype2} vtype3={vtype3} pic1={pic1}
+                                vtype1={vtype1} vtype2={vtype2} vtype3={vtype3} pic1={pic1} fav={favorite}
                             />
                         )
                     })    

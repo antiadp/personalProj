@@ -37,5 +37,13 @@ module.exports = {
         let venue = await db.getVenPage([req.params.id])
         console.log(venue[0])
         res.status(200).send(venue[0])
+    },
+
+    favoriteVenue: (req, res) => {
+        let db = req.app.get('db')
+        db.fav_venue([id])
+            .then(res => {
+                res.status(200).send()
+            })
     }
 }

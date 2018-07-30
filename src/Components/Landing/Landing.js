@@ -29,9 +29,10 @@ class login extends Component {
             password: this.state.password
           })
           .then(res =>{
+              console.log(res.data)
               this.props.updateUser(res.data)
           })
-          .then(res => this.props.history.push('/home'));
+          .then(res => this.props.updateUser ? this.props.history.push('/home') : this.props.history.push('/') )
       }
 
     render() {

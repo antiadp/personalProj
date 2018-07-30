@@ -36,6 +36,8 @@ app.get('/isAuthenticated')
 app.post('/auth/user', uCtrl.loginUser);
 app.put('/updateuser', uCtrl.updateUser);
 app.get('/getuserdata', uCtrl.getUserData);
+app.post("/logout", uCtrl.logout);
+
 
 app.get('/api/getVenues', vCtrl.getVenues);
 
@@ -43,6 +45,7 @@ app.get('/venue/:id', vCtrl.getVenPage)
 
 app.get('./uservenues', vCtrl.uservenues);
 app.delete('./removeFav', vCtrl.removeFav);
+app.patch('/venue/updateFav', vCtrl.favoriteVenue)
 
 
 app.listen(SERVER_PORT, ()=> console.log(`Kicking the: ${SERVER_PORT}'s`));
